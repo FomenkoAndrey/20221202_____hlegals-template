@@ -1,2 +1,21 @@
 @use "../../../presets" as *;
 @use "../../../mixins" as *;
+
+.menu {
+
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    gap: $gap-md;
+
+    @include unlist;
+  }
+
+  &__link {
+    display: block;
+    padding: 0.25em 0;
+
+    color: $color-white;
+    font-size: 18px;
+  }
+}
