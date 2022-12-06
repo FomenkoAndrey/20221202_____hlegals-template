@@ -4,16 +4,25 @@
 .actions {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: $gap;
 
-  a {
-    color: $color-white;
+  @include sm-min {
+    justify-content: flex-end;
+    a {
+      color: $color-white;
+    }
   }
+  @include sm {
+    justify-content: space-between;
+    a {
+      color: $color-gray-bg-text;
+    }
+  }
+
 
   &__languages {
     display: flex;
-    gap: 3px;
+    gap: 2px;
 
     font-weight: 700;
     font-size: 12px;
@@ -25,11 +34,16 @@
 
       &.-active {
         background: $color-accent;
+        color: $color-white;
       }
     }
   }
 
   &__locations {
+    @include md {
+      display: none;
+    }
+
     &-link {
       font-style: normal;
     }
@@ -38,6 +52,12 @@
   &__phones {
     &-link {
       font-weight: 700;
+    }
+  }
+
+  &__socials {
+    @include lg {
+      display: none;
     }
   }
 }
