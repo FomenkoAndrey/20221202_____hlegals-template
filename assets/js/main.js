@@ -1,16 +1,24 @@
 // управление меню
-const menuBtn = document.querySelector(".menu__btn");
-const menuList = document.querySelector(".menu__list");
-const body = document.querySelector("body");
+// const menuBtn = document.querySelector(".menu__btn");
+// const menuList = document.querySelector(".menu__list");
+// const body = document.querySelector("body");
+//
+// menuBtn.addEventListener("click", (e) => {
+//   menuBtn.classList.toggle("-active");
+//   body.classList.toggle("-active");
+//   if (menuList.classList.contains("-active")) {
+//     setTimeout(() => menuList.classList.toggle("-active"), 500);
+//   } else {
+//     menuList.classList.toggle("-active");
+//   }
+// });
 
-menuBtn.addEventListener("click", (e) => {
-  menuBtn.classList.toggle("-active");
-  body.classList.toggle("-active");
-  if (menuList.classList.contains("-active")) {
-    setTimeout(() => menuList.classList.toggle("-active"), 500);
-  } else {
-    menuList.classList.toggle("-active");
-  }
+
+$(document).ready(function() {
+  $(".menu__btn").on("click", function() {
+    $(this).toggleClass("-active");
+    $(".menu__list").stop(true, true).slideToggle(500);
+  });
 });
 
 
@@ -41,5 +49,5 @@ setInterval(() => {
 // вычисление и изменение высоты блока описания под максимальный текст
 descriptionsList.forEach(el => heightsArr.push(el.clientHeight));
 heightMax = Math.max(...heightsArr);
-// descriptionsList.forEach(el => el.style.height = `${heightMax}px`);
+descriptionsList.forEach(el => el.style.height = `${heightMax}px`);
 
