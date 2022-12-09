@@ -3,14 +3,17 @@
 
 .page-header {
   position: relative;
+
   background: linear-gradient($bg-gradient1);
 
   &::before {
+    content: "";
+
     background-image: url(../img/Frame2.svg);
     background-repeat: no-repeat;
     background-position: 50% 100%;
     background-size: 86.4vh;
-    content: "";
+
     @include abs-position;
     @include md {
       display: none;
@@ -18,35 +21,37 @@
   }
 
   &::after {
-    background: linear-gradient(to top, $color-primary 0%, transparent 100%);
     content: "";
+
+    background: linear-gradient(to top, $color-primary 0%, transparent 100%);
 
     @include abs-position(75%);
   }
 
   &__grid {
     position: absolute;
+    z-index: 2;
     top: 0;
     right: 0;
     left: 0;
-    z-index: 2;
 
     display: grid;
-    grid-template-columns: auto 1fr;
     align-items: center;
 
+    @extend %container;
+    grid-template-columns: auto 1fr;
     @include sm-min {
       padding-top: 50px;
+
       gap: $gap-sm $gap;
       grid-template-areas: "logo actions" "logo menu";
     }
     @include sm {
       padding-top: $gap;
+
       gap: $gap;
       grid-template-areas: "actions actions" "logo menu";
     }
-
-    @extend %container;
   }
 
   &__logo {
@@ -63,27 +68,31 @@
 
   &__content {
     position: relative;
-    min-height: 100vh;
+
     display: flex;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+
+    min-height: 100vh;
 
     &-title {
-      margin: 0;
       position: absolute;
+      z-index: 1;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+
       width: min(100% - $gap-xl, 620px);
-      z-index: 1;
+      margin: 0;
+
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      color: $color-white;
 
       font-size: 38px;
       font-weight: 500;
       line-height: 45px;
-      text-align: center;
-
-      color: $color-white;
     }
 
     &-image {
@@ -97,12 +106,11 @@
 
   &__button {
     position: absolute;
-
+    z-index: 2;
     bottom: $gap;
     left: 50%;
-    z-index: 2;
 
-    transform: translateX(-50%);
     cursor: pointer;
+    transform: translateX(-50%);
   }
 }
