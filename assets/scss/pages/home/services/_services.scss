@@ -1,0 +1,61 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.services {
+  position: relative;
+
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient($bg-gradient2);
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    right: $gap-xl;
+    left: $gap-xl;
+
+    height: $gap;
+
+    content: "";
+
+    border-radius: 0 0 12px 12px;
+    background: $color-gray-bg-separator;
+  }
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    right: $gap;
+    left: $gap;
+
+    height: $gap-sm;
+
+    content: "";
+
+    border-radius: 0 0 12px 12px;
+    background: $color-gray-bg-text;
+  }
+
+  &__page-link {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: rgba($color-white, 0.5);
+
+    font-size: 14px;
+
+    &::after {
+      display: inline-block;
+
+      width: 12px;
+      height: 12px;
+
+      content: "";
+
+      background-image: url(../img/LinkArrow.svg);
+    }
+  }
+
+  &__container {
+    @extend %container;
+  }
+}

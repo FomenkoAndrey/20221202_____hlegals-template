@@ -1,6 +1,5 @@
 @use "../../../presets" as *;
 @use "../../../mixins" as *;
-
 $size: 16px;
 
 .slider {
@@ -43,16 +42,18 @@ $size: 16px;
     position: relative;
 
     user-select: none;
+
     color: $color-gray-bg-text;
 
     @include lg-min {
       text-align: right;
+
       font-size: 42px;
       line-height: 1.19;
-
     }
     @include lg-md {
       text-align: right;
+
       font-size: 32px;
       line-height: 1.19;
     }
@@ -60,6 +61,7 @@ $size: 16px;
       display: none;
 
       width: min-content;
+      margin-bottom: $gap-sm;
 
       white-space: nowrap;
       letter-spacing: 1px;
@@ -67,9 +69,6 @@ $size: 16px;
 
       font-size: 14px;
       line-height: 17px;
-
-
-      margin-bottom: $gap-sm;
 
       @include text-shorten;
     }
@@ -83,8 +82,8 @@ $size: 16px;
           position: absolute;
           z-index: 1;
           top: 0;
-          bottom: 0;
           right: -42px;
+          bottom: 0;
 
           width: 4px;
 
@@ -125,11 +124,13 @@ $size: 16px;
     line-height: 1.1875;
 
     @include lg-min {
-      font-size: 32px;
       margin-bottom: $gap;
+
+      font-size: 32px;
     }
     @include lg-md {
       margin-bottom: $gap;
+
       font-size: 28px;
     }
     @include md {
@@ -141,18 +142,21 @@ $size: 16px;
 
   &__description {
     line-height: 1.43;
+
     @include md-min {
       font-size: 21px;
     }
     @include md {
-      font-size: 18px;
       margin-bottom: $gap;
+
+      font-size: 18px;
     }
   }
 
   &__indicators {
     display: flex;
     justify-content: center;
+
     gap: 14px;
     @include md-min {
       display: none;
@@ -162,6 +166,7 @@ $size: 16px;
   &__indicator {
     width: $size;
     height: $size;
+
     opacity: 0.2;
     border-radius: $size * 0.5;
     background-color: $color-active;

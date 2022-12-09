@@ -76,15 +76,18 @@
     // TODO: открывающееся мобильное меню
     @include unlist;
     @include md {
-      display: none;
-
       position: absolute;
       top: 100%;
       right: 0;
+
+      display: none;
+
+      padding: $gap-lg;
+
+      text-align: right;
+
       background-color: $color-primary;
       box-shadow: -5px 5px 10px $color-black;
-      text-align: right;
-      padding: $gap-lg;
     }
   }
 
